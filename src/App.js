@@ -1,14 +1,24 @@
 import './App.css';
-import StarWarsDetails from './components/StarWarsDetails';
+import StarWarsDetails from './Pages/StarWarsDetails';
+import { BrowserRouter as Router,
+        Route, 
+        Switch,
+        Link
+} from 'react-router-dom'
+import InitialPage from './Pages/InitialPage';
 
 function App() {
   return (
-    <div className="container">
-      <div className="nameProject">
-        <h1>Star Wars Characters API</h1>
+    <Router>
+     <div className="container">
+        <Switch>
+          <Route path ="/" exact component={InitialPage} />
+          <Route path="/characters" component={StarWarsDetails} />
+        </Switch>
+        
+
       </div>
-        <StarWarsDetails />
-    </div>
+    </Router>
   );
 }
 
