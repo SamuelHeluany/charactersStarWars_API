@@ -28,8 +28,7 @@ function StarWarsDetails() {
               </div>
             </div>
                 ) 
-            })}
-            
+            })}         
         </div>
         <div className="buttonCharacterDetails">
               <button onClick={() => {
@@ -37,8 +36,7 @@ function StarWarsDetails() {
               }}
               >Back</button>
             </div>
-    </>
-        
+    </>       
     )
 }
 
