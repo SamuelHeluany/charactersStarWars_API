@@ -71,13 +71,19 @@ body {
     background-color:rgba(128, 128, 128, 0.699);
 }
 
-.containerPreDetails .buttonCharacterDetails {
+.containerPreDetails {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.buttonCharacterDetails {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.containerPreDetails .buttonCharacterDetails button {
+.buttonCharacterDetails button {
     width: 130px;
     height:45px;
     border-radius: 8px;
@@ -89,7 +95,8 @@ body {
     background-color:rgb(49, 49, 49);
 }
 
-.containerPreDetails .buttonCharacterDetails button:hover {
+.buttonCharacterDetails button:hover {
     cursor: pointer;
     background-color:rgba(128, 128, 128, 0.699);
 }
+

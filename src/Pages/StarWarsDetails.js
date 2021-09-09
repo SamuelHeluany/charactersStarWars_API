@@ -16,6 +16,7 @@ function StarWarsDetails() {
     },[])
   
     return (
+      <>
       <div className="containerPreDetails">
         {character.map((details) => {
           return(
@@ -28,13 +29,16 @@ function StarWarsDetails() {
             </div>
                 ) 
             })}
-            <div className="buttonCharacterDetails">
+            
+        </div>
+        <div className="buttonCharacterDetails">
               <button onClick={() => {
                   history.goBack()
               }}
               >Back</button>
             </div>
-        </div>
+    </>
+        
     )
 }
 
