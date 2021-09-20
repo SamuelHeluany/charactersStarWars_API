@@ -3,23 +3,33 @@ import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 function StarWarsDetails() {
-    const [character, setCharacter] = useState([])
-    const history = useHistory()
+  const [character, setCharacter] = useState([])
+  const history = useHistory()
+  const [page, setPage] = useState(1)
 
-    const characterDetails = async () => {
-      const result = await axios.get('https://swapi.dev/api/people')
-      setCharacter(result.data.results)
+  const characterDetails = async () => {
+    const result = await axios.get('https://swapi.dev/api/people/?page=' + page)
+    setCharacter(result.data.results)
+  }
+
+  const nextPage = () => {
+    setPage(page + 1)
+  }
+
+  const previousPage = () => {
+    if (page >= 2) {
+      setPage(page - 1)
     }
-  
-    useEffect(() => {
-      characterDetails()
-    },[])
-  
-    return (
-      <>
+  }
+  useEffect(() => {
+    characterDetails()
+  }, [page])
+
+  return (
+    <>
       <div className="containerPreDetails">
         {character.map((details) => {
-          return(
+          return (
             <div className="containerDetails">
               <div className="detailsCharacters">
                 <h2>Name: {details.name}</h2>
@@ -27,17 +37,31 @@ function StarWarsDetails() {
                 <h4>Gender: {details.gender}</h4>
               </div>
             </div>
-                ) 
-            })}         
-        </div>
-        <div className="buttonCharacterDetails">
-              <button onClick={() => {
-                  history.goBack()
-              }}
-              >Back</button>
-            </div>
-    </>       
-    )
+          )
+        })}
+      </div>
+      <div className="buttonCharacterDetails">
+        {page >= 2 ? (
+          <div className="btns">
+            <button className="prevbtn" onClick={previousPage}>Previous Page</button>
+            <button className="initbtn" onClick={() => {
+              history.goBack()
+            }}
+            >Initial Page</button>
+            <button className="morebtn" onClick={nextPage}>Next Page</button>
+          </div>
+        ) : (
+          <div className="btns">
+            <button className="initbtn" onClick={() => {
+              history.goBack()
+            }}
+            >Initial Page</button>
+            <button className="morebtn" onClick={nextPage}>Next Page</button>
+          </div>
+        )}
+      </div>
+    </>
+  )
 }
 
 export default StarWarsDetails
