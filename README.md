@@ -1,3 +1,12 @@
+# STAR WARS API
+
+<h1>Acesse o projeto <a href="https://starwars-api.netlify.app/">AQUI</h1>
+
+<img alt="star-wars"  title="Project Image" src="github/Initialpage.png">
+<img alt="star-wars"  title="Project Image" src="github/insidepage.png">
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

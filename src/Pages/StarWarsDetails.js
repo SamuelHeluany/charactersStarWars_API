@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import InitialPage from './InitialPage'
 
 function StarWarsDetails() {
   const [character, setCharacter] = useState([])
@@ -27,6 +28,9 @@ function StarWarsDetails() {
 
   return (
     <>
+      <div className="nameProject">
+        <h1>Star Wars Characters</h1>
+      </div>
       <div className="containerPreDetails">
         {character.map((details) => {
           return (
